@@ -1,3 +1,30 @@
+```python
+# Let's perform a minor correction check on the requested testimonials text as requested ("correct mistakes but change as little as necessary")
+# Common spelling/grammar mistakes found in user-provided text:
+# 1. "fell comfortable" -> "feel comfortable" (Tendayishe)
+# 2. "Pani Pawel" -> "Pan Paweł" or "Paweł" (since Pawel is male, Pani means Mrs. Let's make it "Paweł" or "Pan Paweł". The user is a male "Paweł" so "Pani" is definitely a typo for "Pan" or "Teacher"). Let's fix "Pani Pawel" to "Pan Paweł" or just "Paweł" to match the rest of the text.
+# 3. "very few people speaks" -> "very few people speak" (Brando)
+# 4. "fully immerge myself" -> "fully immerse myself" (Brando)
+# 5. "provides me the instruments" -> "provides me with the instruments" (Brando)
+# 6. "polish films" -> "Polish films" (Brando)
+
+# Let's double check if we need to write the complete updated index.html code file to the user.
+print("Correction analysis done.")
+
+
+```
+
+```text
+Correction analysis done.
+
+
+```
+
+Oto zaktualizowany kod Twojej strony. Poprawiłem drobne błędy językowe w opiniach studentów (np. *„fell comfortable”* na *„feel comfortable”*, *„immerge”* na *„immerse”*, *„Pani Pawel”* na *„Pan Paweł”* oraz błędy w wielkości liter typu *„polish”*), zachowując jednocześnie w 100% naturalny styl wypowiedzi Twoich uczniów.
+
+Dodałem nową, nowoczesną sekcję **Testimonials** (opinie) z eleganckim układem kafelkowym, która idealnie pasuje do dotychczasowej, biznesowej stylistyki premium (granat, złoto, biele). Kod jest w pełni gotowy do skopiowania i wrzucenia bezpośrednio na GitHub.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,6 +138,53 @@
             font-size: 2.2rem;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 5%;
+            background-color: #f8fafc;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            white-space: pre-line; /* Keeps line breaks clean */
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 0.75rem;
+        }
+
         .contact {
             background-color: var(--primary);
             color: var(--text-light);
@@ -139,6 +213,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.1rem; }
+            .testimonials-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -174,6 +249,86 @@
         <p>I help native English speakers master the Polish language without the typical frustration. My goal is to give you the practical communication skills and confidence you need to lead teams in Poland, navigate social environments, and effortlessly connect with your Polish partners or family.</p>
     </section>
 
+    <section class="testimonials">
+        <h2>What My Students Say</h2>
+        <div class="testimonials-grid">
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">Paweł is a very good teacher, who explains the lessons clearly and patiently. He also encourages students to engage, including actively practicing Polish through conversation and occasionally learning about Polish culture.
+
+                The course is well-structured, providing a comprehensive balance of grammar, vocabulary, and practical exercises, with opportunities for speaking practice and occasional insights into Polish culture.</div>
+                <div class="testimonial-author">Alessio</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">I'm really satisfied with the current lessons that I am having with Paweł.
+
+                The course is very clear, we do a lot of practice like writing sentences and have dialogues between students. Paweł always provides clear explanations of the grammar and the rules. All the information that we use during the classes is always available via a shared folder online; this makes individual study way easier even outside the class.
+
+                What I really like about the classes is the character of the professor. Paweł does not teach us only using grammar books or rules; he suggests Polish films and series to watch, TV programs, and websites with news articles. This approach is very cool because while as a foreigner I can get some hints on what is going on around me, due to the language barrier I am not fully capable of catching the details.
+
+                This way, Paweł provides me with the instruments to have a solid base in grammar and at the same time to fully immerse myself in contemporary Polish culture. This makes the classes very fun and engaging, which really helped me a lot, especially since from my experience very few people speak exactly like in the books. With this approach, I am capable of understanding jokes and proverbs more clearly, and having an actual understanding of what the meaning of a phrase is beside the simple translation.</div>
+                <div class="testimonial-author">Brando</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">The Polish course is incredibly engaging and well-structured. The mix of speaking, grammar, and practical exercises is very helpful in learning.
+
+                The teacher is very patient, encouraging, and always well-prepared. He creates a supportive atmosphere where I feel comfortable asking questions and practicing my Polish. His explanations are clear, and he genuinely cares about our progress.</div>
+                <div class="testimonial-author">Tendayishe</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">The classes are well-structured and engaging. Each lesson builds naturally on the last. I wish we had more hours of class per week! 😀
+
+                Pan Paweł is patient, encouraging, charismatic, and passionate about teaching Polish. He has a talent for explaining tricky concepts in a way that just clicks, and he always makes time to answer questions. He also makes sure we understand before we move to the next phase.</div>
+                <div class="testimonial-author">Rufaro</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">I just wanted to sincerely thank you for all your incredible support and effort during our Polish classes. It was truly a wonderful experience for me. I feel like I’ve learned a lot and really developed both my skills and knowledge.
+
+                I especially appreciated your patience with us; it made a huge difference. I loved your teaching style and the topics you introduced, particularly Polish history. It made learning the language feel much more meaningful and engaging.
+
+                You’re a truly great teacher, and your passion for what you do really shows. Thank you again for everything! 🙏🏻 😊 Wishing you all the best, teacher Paweł!</div>
+                <div class="testimonial-author">Dina</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">Hi! My Polish teacher, Paweł, uses a clear and effective teaching method, and the classes are very useful for me. I have improved my skills and gained confidence in communicating in Polish, even at a beginner level. I also value his consistent positive attitude and dedication. I would like to continue learning with him and would definitely recommend him to others.</div>
+                <div class="testimonial-author">Diego Zambrano</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">I thoroughly enjoy Paweł’s classes and greatly appreciate his teaching approach. One of the most valuable aspects for me is that we speak Polish throughout the lessons, which I believe is essential for improving my language skills and reaching a higher level.
+
+                What I find particularly helpful is that the learning process is not mechanical. Instead of simply memorizing, Paweł focuses on real understanding and communication. He is very attentive in identifying areas where we need improvement and consistently works on them, which makes the learning experience both effective and personalized.
+
+                I also appreciate that the classes go beyond standard language learning. We often discuss songs, movies, politics, poets, and other cultural topics, which makes the lessons much more engaging and enriching.
+
+                Overall, Paweł is a dedicated and inspiring teacher whose classes are both motivating and highly beneficial for developing Polish language skills.</div>
+                <div class="testimonial-author">Jana</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">I attended a one-hour Polish class with Paweł, and it was delivered in a very interactive and engaging manner. The lessons included homework, pronunciation practice, and clear grammar explanations that were well-tailored to our level, which I found especially helpful.
+
+                Paweł was very patient, understanding, and always encouraging. He maintained a positive attitude and was consistently willing to help with any questions, which made the learning experience even better.
+
+                One suggestion for improvement would be to extend the class duration, as one hour once a week felt a bit short.</div>
+                <div class="testimonial-author">Tsion</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-text">I'm enjoying the classes as they are very well-organized. I can learn more about Polish culture besides just language grammar, and overall it's widening my knowledge about the world, news, and politics. I like the class atmosphere—it's very comfortable and welcoming. 
+
+                I'd like to add that Paweł is the best Polish language teacher I've ever had, despite my almost 8 years of stay in Poland, and I'd like to prolong classes with him in the near future.</div>
+                <div class="testimonial-author">Altynai</div>
+            </div>
+
+        </div>
+    </section>
+
     <section class="contact" id="book">
         <h2>Start Your Journey Today</h2>
         <p>If you're ready to learn Polish efficiently and without corporate stress, let's talk. The best way to reach out or book a consultation is to message me directly via LinkedIn or email.</p>
@@ -185,3 +340,5 @@
 
 </body>
 </html>
+
+```
