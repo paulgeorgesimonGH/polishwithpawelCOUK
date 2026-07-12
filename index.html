@@ -41,22 +41,22 @@
             color: var(--gold);
         }
 
-        . {
+        .hero {
             background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') no-repeat center center/cover;
             color: var(--text-light);
             padding: 8rem 5%;
             text-align: center;
         }
 
-        . h1 {
+        .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
 
-        . p {
+        .hero p {
             font-size: 1.25rem;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 2.5rem auto;
             color: #94a3b8;
         }
@@ -111,10 +111,15 @@
             font-size: 2.2rem;
         }
 
-        /* --- NOWA SEKCJA TESTIMONIALS --- */
+        /* --- WYŚRODKOWANA I STABILNA SEKCJA TESTIMONIALS --- */
         .testimonials {
             padding: 5rem 5%;
             background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
             position: relative;
             overflow: hidden;
         }
@@ -124,13 +129,16 @@
             color: var(--primary);
             font-size: 2.2rem;
             margin-bottom: 3rem;
+            width: 100%;
         }
 
         .slider-container {
             position: relative;
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 50px;
+            box-sizing: border-box;
         }
 
         .testimonials-grid {
@@ -140,15 +148,16 @@
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             padding: 1rem 0;
-            scrollbar-width: none; /* Ukrywa scrollbar w Firefox */
+            scrollbar-width: none;
+            width: 100%;
         }
 
         .testimonials-grid::-webkit-scrollbar {
-            display: none; /* Ukrywa scrollbar w Chrome/Safari */
+            display: none;
         }
 
         .testimonial-card {
-            flex: 0 0 calc(33.333% - 1.34rem); /* 3 kafelki na desktopie */
+            flex: 0 0 calc(33.333% - 1.34rem);
             scroll-snap-align: start;
             background: #ffffff;
             padding: 2rem;
@@ -157,13 +166,20 @@
             border-left: 4px solid var(--gold);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             box-sizing: border-box;
-            align-self: flex-start; /* Zapobiega rozciąganiu wszystkich kafelków do najwyższego */
+            height: 340px;
+            transition: height 0.3s ease;
+        }
+
+        .testimonial-card.expanded {
+            height: auto;
+            min-height: 340px;
         }
 
         .testimonial-text-container {
-            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .testimonial-text {
@@ -171,12 +187,13 @@
             color: var(--text-dark);
             white-space: pre-line;
             display: -webkit-box;
-            -webkit-line-clamp: 4; /* Domyślnie pokazuj tylko 4 linijki tekstu */
+            -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* Klasa dodawana przez JS po kliknięciu "Rozwiń" */
         .testimonial-card.expanded .testimonial-text {
             display: block;
             overflow: visible;
@@ -192,7 +209,8 @@
             padding: 0;
             margin-top: 0.5rem;
             font-size: 0.9rem;
-            display: none; /* Domyślnie ukryty, aktywowany przez JS jeśli tekst jest długi */
+            align-self: flex-start;
+            display: none;
         }
 
         .testimonial-author {
@@ -201,10 +219,9 @@
             font-size: 1.1rem;
             border-top: 1px solid #e2e8f0;
             padding-top: 0.75rem;
-            margin-top: auto;
+            margin-top: 1rem;
         }
 
-        /* Strzałki nawigacji */
         .slider-btn {
             position: absolute;
             top: 50%;
@@ -220,7 +237,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: all 0.2s;
             z-index: 10;
         }
@@ -259,21 +276,20 @@
             font-size: 0.9rem;
         }
 
-        /* RWD dla karuzeli */
         @media (max-width: 1024px) {
             .testimonial-card {
-                flex: 0 0 calc(50% - 1rem); /* 2 kafelki na tabletach */
+                flex: 0 0 calc(50% - 1rem);
             }
         }
 
         @media (max-width: 768px) {
-            . h1 { font-size: 2.2rem; }
-            . p { font-size: 1.1rem; }
-            .slider-container { padding: 0 10px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .slider-container { padding: 0; }
             .testimonial-card {
-                flex: 0 0 100%; /* 1 kafelek na telefonach */
+                flex: 0 0 100%;
             }
-            .slider-btn { display: none; } /* Na telefonach przewija się naturalnie palcem, strzałki są zbędne */
+            .slider-btn { display: none; }
         }
     </style>
 </head>
@@ -284,11 +300,11 @@
     </header>
 
     <section class="hero">
-    <h1>Master Polish. Lead with Confidence.</h1>
-    <p>Premium Polish language coaching for global executives, international professionals, and expats. An English-first approach designed to break the language barrier, seamlessly tailored for corporate leaders from the UK, US, Australia, and every corner of the world.</p>
-    <a href="https://linkedin.com" class="btn" target="_blank">Connect with me on LinkedIn</a>
-</section>
-    
+        <h1>Master Polish. Lead with Confidence.</h1>
+        <p>Premium Polish language coaching for global executives, international professionals, and expats. An English-first approach designed to break the language barrier, seamlessly tailored for corporate leaders from the UK, US, Australia, and every corner of the world.</p>
+        <a href="https://linkedin.com" class="btn" target="_blank">Connect with me on LinkedIn</a>
+    </section>
+
     <section class="features">
         <div class="feature-card">
             <h3>Business-Focused Approach</h3>
@@ -305,11 +321,10 @@
     </section>
 
     <section class="about">
-    <h2>Hi, I'm Paweł.</h2>
-    <p>I help international expats and professionals from across the globe master the Polish language without the typical frustration. With an English-first coaching style, I bridge the gap for global minds—whether you are an executive from the UK, US, and Australia adjusting to corporate Warsaw, or a professional from Europe, Asia, and beyond looking to effortlessly connect with your teams, partners, or family.</p>
-</section>
+        <h2>Hi, I'm Paweł.</h2>
+        <p>I help international expats and professionals from across the globe master the Polish language without the typical frustration. With an English-first coaching style, I bridge the gap for global minds—whether you are an executive from the UK, US, or Australia adjusting to corporate Warsaw, or a professional from Europe, Asia, and beyond looking to effortlessly connect with your teams, partners, or family.</p>
+    </section>
 
-    
     <section class="testimonials">
         <h2>What My Students Say</h2>
         
@@ -380,7 +395,7 @@
                         <div class="testimonial-text">Hi! My Polish teacher, Paweł, uses a clear and effective teaching method, and the classes are very useful for me. I have improved my skills and gained confidence in communicating in Polish, even at a beginner level. I also value his consistent positive attitude and dedication. I would like to continue learning with him and would definitely recommend him to others.</div>
                         <button class="read-more-btn">Read more</button>
                     </div>
-                    <div class="testimonial-author">Diego</div>
+                    <div class="testimonial-author">Diego Zambrano</div>
                 </div>
 
                 <div class="testimonial-card">
@@ -437,10 +452,9 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
 
-        // Obsługa strzałek slidera
         prevBtn.addEventListener('click', () => {
             const cardWidth = slider.querySelector('.testimonial-card').offsetWidth;
-            slider.scrollBy({ left: -(cardWidth + 32), behavior: 'smooth' }); // 32 to gap (2rem)
+            slider.scrollBy({ left: -(cardWidth + 32), behavior: 'smooth' }); 
         });
 
         nextBtn.addEventListener('click', () => {
@@ -448,12 +462,10 @@
             slider.scrollBy({ left: cardWidth + 32, behavior: 'smooth' });
         });
 
-        // Obsługa przycisku "Read more / Show less"
         document.querySelectorAll('.testimonial-card').forEach(card => {
             const textElement = card.querySelector('.testimonial-text');
             const btn = card.querySelector('.read-more-btn');
 
-            // Pokazuj przycisk "Read more" tylko jeśli tekst rzeczywiście przekracza 4 linijki
             if (textElement.scrollHeight > textElement.clientHeight) {
                 btn.style.display = 'inline-block';
             }
